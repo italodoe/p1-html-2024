@@ -5,21 +5,22 @@
     <title>HTML and CSS Project - Experiment - FullStack</title>
   </head>
   <body>
-1
-      <div id="track">
-        <img class="img" src="../public/img/track/img-1.jpg"/>
-        <img class="img" src="../public/img/track/img-2.jpg"/>
-        <img class="img" src="../public/img/track/img-3.jpg"/>
-        <img class="img" src="../public/img/track/img-4.jpg"/>
-        <img class="img" src="../public/img/track/img-5.jpg"/>
-        <img class="img" src="../public/img/track/img-6.jpg"/>
-        <img class="img" src="../public/img/track/img-7.jpg"/>
-        <img class="img" src="../public/img/track/img-8.jpg"/>
-        <img class="img" src="../public/img/track/img-9.jpg"/>
-        <img class="img" src="../public/img/track/img-10.jpg"/>
-      </div>
- 
+    1
+    <div id="track">
+    </div>
   </body>
 
   <script src="../public/js/main.js"></script>
+
+  <script>
+    var wrapper = document.getElementById("track");
+    var img_up = `<img class="img" src="../public/img/track/img-`;
+    var img_down = `.jpg"/>`;
+    var content = '${}.jpg"/>';
+
+    for (let i = 1; i < 11; i++) {
+      content += (img_up + i + img_down);
+    }
+    wrapper.innerHTML = content;
+  </script>
 </html>
