@@ -29,14 +29,12 @@ body {
   margin: 0;
   color: white;
   background-color: darkslategrey;
-  display: grid;
+  padding-block: 4rem;
 }
-
 
 .header-content > * {
   width: auto;
 }
-
 
 .h-img {
   width: 100%;
