@@ -16,7 +16,8 @@ body {
 }
 
 .h-title {
-  font-size: 4.25rem;
+  font-size: clamp(3rem, 6vw, 7rem);
+  font-weight: 800;
 }
 
 .wrapper {
@@ -24,9 +25,18 @@ body {
   margin: auto;
 }
 
+.header {
+  margin: 0;
+  color: white;
+  background-color: darkslategrey;
+  display: grid;
+}
+
+
 .header-content > * {
   width: auto;
 }
+
 
 .h-img {
   width: 100%;
