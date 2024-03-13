@@ -16,8 +16,8 @@ body {
   font-size: 1.2rem;
 }
 
-main{
-    padding-block: 0 10rem;
+main {
+  padding-block: 0 10rem;
 }
 
 .h-title {
@@ -63,7 +63,7 @@ main{
 
 .wrapper-2 {
   width: 100%;
-  background-color: bisque;
+  background-color: transparent;
   position: relative;
   min-height: 600px;
   overflow: hidden;
@@ -78,7 +78,7 @@ main{
 }
 
 .content-w {
-  --var-bg: #050505;;
+  --var-bg: #050505;
   --var-border-radius: 2rem;
 
   display: grid;
@@ -97,10 +97,11 @@ main{
   display: flex;
   flex-direction: column;
   /* grid-column-end: span 12; */
-  background-color: var( --var-bg);
-  overflow: hidden;
+  background-color: var(--var-bg);
+  /* overflow: hidden; */
   border-radius: var(--var-border-radius);
   padding: 5rem 5rem;
+  z-index: 1;
 }
 .image-area {
   grid-area: image;
@@ -108,29 +109,50 @@ main{
 
   display: flex;
   flex-direction: column;
-  background-color: aquamarine;
+  background-color: transparent;
   max-height: 600px;
   overflow: hidden;
 
+  max-width: 100%;
+
+  max-height: -webkit-fill-available;
+
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .ca-inner {
-  background-color: aquamarine;
+  background-color: transparent;
   height: 100%;
   border-radius: var(--var-border-radius);
   padding: 1rem;
-  
 }
 
-.ia-img{
-    width: 233%;
+.ia-img {
+  width: 233%;
 }
-.back-g-content-w{
-    grid-area: content;
-    border-radius: var(--var-border-radius);
+.back-g-content-w {
+  grid-area: content;
+  border-radius: var(--var-border-radius);
 
-    grid-column-end: span 10;
-    background-color: #050505;
-    overflow: hidden;
-    
+  grid-column-end: span 10;
+  background-color: #050505;
+  overflow: hidden;
+}
+
+.content-h1 {
+  font-size: clamp(4rem, 6vw, 7rem);
+  font-weight: 800;
+  color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+    min-width: 4rem;
+}
+
+@media (max-width: 1360px) {
+  .ia-img {
+    height: 100%;
+  }
 }
