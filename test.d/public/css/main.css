@@ -78,6 +78,9 @@ main{
 }
 
 .content-w {
+  --var-bg: #050505;;
+  --var-border-radius: 2rem;
+
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 24px;
@@ -90,24 +93,25 @@ main{
 }
 
 .content-area {
-  --var-border-radius: 11px;
   grid-area: content;
   display: flex;
   flex-direction: column;
   /* grid-column-end: span 12; */
-  background-color: rgb(111, 46, 196);
+  background-color: var( --var-bg);
   overflow: hidden;
   border-radius: var(--var-border-radius);
   padding: 5rem 5rem;
 }
 .image-area {
   grid-area: image;
+  border-radius: var(--var-border-radius);
 
   display: flex;
   flex-direction: column;
   background-color: aquamarine;
-  max-width: 600px;
+  max-height: 600px;
   overflow: hidden;
+
 }
 
 .ca-inner {
@@ -120,4 +124,13 @@ main{
 
 .ia-img{
     width: 233%;
+}
+.back-g-content-w{
+    grid-area: content;
+    border-radius: var(--var-border-radius);
+
+    grid-column-end: span 10;
+    background-color: #050505;
+    overflow: hidden;
+    
 }
