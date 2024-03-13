@@ -18,3 +18,16 @@ body{
 .m-title{
     font-size: 4.25rem;
 }
+
+.wrapper{
+    max-width: 40rem;
+    margin: auto;
+}
+
+.header-content > * {
+    width: auto;
+}
+
+.m-img{
+    width: 100%;
+}
