@@ -1,4 +1,20 @@
+:root{
+    --var-font-family: system-ui, sans-serif;
+    --main-bg: white;
+    --main-color: rgb(24, 24, 24);
+}
+
 html{
-    background-color: black;
-    color: white;
+    font-family: var(--var-font-family);
+    background-color:var(--main-bg);
+    color: var(--main-color);
+
+}
+body{
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.m-title{
+    font-size: 4.25rem;
 }
