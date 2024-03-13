@@ -112,11 +112,8 @@ main {
   background-color: transparent;
   max-height: 600px;
   overflow: hidden;
-
   max-width: 100%;
-
   max-height: -webkit-fill-available;
-
   -webkit-user-select: none;
   -webkit-user-drag: none;
   -ms-user-select: none;
@@ -133,10 +130,10 @@ main {
 .ia-img {
   width: 233%;
 }
+
 .back-g-content-w {
   grid-area: content;
   border-radius: var(--var-border-radius);
-
   grid-column-end: span 10;
   background-color: #050505;
   overflow: hidden;
@@ -148,7 +145,7 @@ main {
   color: white;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-    min-width: 4rem;
+  min-width: 4rem;
 }
 
 @media (max-width: 1360px) {
