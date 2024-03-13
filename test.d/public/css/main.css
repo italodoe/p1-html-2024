@@ -1,33 +1,33 @@
-:root{
-    --var-font-family: system-ui, sans-serif;
-    --main-bg: white;
-    --main-color: rgb(24, 24, 24);
+:root {
+  --var-font-family: system-ui, sans-serif;
+  --main-bg: white;
+  --main-color: rgb(24, 24, 24);
 }
 
-html{
-    font-family: var(--var-font-family);
-    background-color:var(--main-bg);
-    color: var(--main-color);
-
-}
-body{
-    margin: 0;
-    font-size: 1.2rem;
+html {
+  font-family: var(--var-font-family);
+  background-color: var(--main-bg);
+  color: var(--main-color);
 }
 
-.m-title{
-    font-size: 4.25rem;
+body {
+  margin: 0;
+  font-size: 1.2rem;
 }
 
-.wrapper{
-    max-width: 40rem;
-    margin: auto;
+.h-title {
+  font-size: 4.25rem;
+}
+
+.wrapper {
+  max-width: 40rem;
+  margin: auto;
 }
 
 .header-content > * {
-    width: auto;
+  width: auto;
 }
 
-.m-img{
-    width: 100%;
+.h-img {
+  width: 100%;
 }
