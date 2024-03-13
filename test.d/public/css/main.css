@@ -16,6 +16,10 @@ body {
   font-size: 1.2rem;
 }
 
+main{
+    padding-block: 0 10rem;
+}
+
 .h-title {
   font-size: clamp(3rem, 6vw, 7rem);
   font-weight: 800;
@@ -81,17 +85,20 @@ body {
   position: relative;
   overflow: hidden;
   min-height: 600px;
-height: auto;
+  height: auto;
   grid-template-areas: ". content content content content content image image image image image ";
 }
 
 .content-area {
+  --var-border-radius: 11px;
   grid-area: content;
-
   display: flex;
   flex-direction: column;
   /* grid-column-end: span 12; */
   background-color: rgb(111, 46, 196);
+  overflow: hidden;
+  border-radius: var(--var-border-radius);
+  padding: 5rem 5rem;
 }
 .image-area {
   grid-area: image;
@@ -99,4 +106,18 @@ height: auto;
   display: flex;
   flex-direction: column;
   background-color: aquamarine;
+  max-width: 600px;
+  overflow: hidden;
+}
+
+.ca-inner {
+  background-color: aquamarine;
+  height: 100%;
+  border-radius: var(--var-border-radius);
+  padding: 1rem;
+  
+}
+
+.ia-img{
+    width: 233%;
 }
