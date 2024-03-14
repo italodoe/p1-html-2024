@@ -28,7 +28,7 @@ body {
   padding: 0;
 }
 
-#wrapper{
+#wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(18rem, 23rem));
   grid-template-rows: repeat(3, 18rem);
@@ -38,11 +38,23 @@ body {
   position: relative;
   top: 50%;
   transform: translate(0%, -50%);
-
 }
 
-.card{
-  background-color: rgba(255, 255, 255, 0.1);
+.card {
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: var(--var-border-radius);
+  display: relative;
+  border: 2px solid rgba(255, 255, 255, 0.07);
 }
 
+.card:before {
+  content: " ";
+  background: radial-gradient(
+    33rem circle at 10rem 10rem,
+    rgba(255, 255, 255, 0.082),
+    transparent 44%
+  );
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
