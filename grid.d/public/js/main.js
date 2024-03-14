@@ -19,12 +19,8 @@ window.addEventListener(
       x: e.clientX,
       y: e.clientY,
     };
-
-    console.log(offset);
     const target = e.target;
-    console.log(target);
     const rect = target.getBoundingClientRect();
-    console.log(rect);
     const x = offset.x - rect.left;
     const y = offset.y - rect.top;
     target.style.cssText += `---mouse-x: ${x}px; ---mouse-y: ${y}px;`

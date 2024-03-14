@@ -59,4 +59,9 @@ body {
   width: 100%;
   position: absolute;
   overflow: hidden;
+  opacity: 0;
+  transition: opacity 333ms;
+ }
+.card:hover:before {
+  opacity: 1;
 }
