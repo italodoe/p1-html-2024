@@ -15,7 +15,7 @@
     var wrapper = document.getElementById("track");
     var img_up = `<img class="img" src="../public/img/track/img-`;
     var img_down = `.jpg"/>`;
-    var content = '${}.jpg"/>';
+    var content = '';
     var keys = [...Array(11).keys()].sort( () => .5 - Math.random() );
     for (let i = 1; i < keys.length; i++) {
       content += img_up + keys[i] + img_down;
