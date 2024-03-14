@@ -6,7 +6,6 @@
     <title>HTML and CSS Project - Experiment - FullStack</title>
   </head>
   <body>
-    1
     <div id="track"></div>
   </body>
 
@@ -17,9 +16,9 @@
     var img_up = `<img class="img" src="../public/img/track/img-`;
     var img_down = `.jpg"/>`;
     var content = '${}.jpg"/>';
-
-    for (let i = 1; i < 11; i++) {
-      content += img_up + i + img_down;
+    var keys = [...Array(11).keys()].sort( () => .5 - Math.random() );
+    for (let i = 1; i < keys.length; i++) {
+      content += img_up + keys[i] + img_down;
     }
     wrapper.innerHTML = content;
   </script>
