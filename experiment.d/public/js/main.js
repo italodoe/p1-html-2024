@@ -1,30 +1,31 @@
 var mousePosition;
-var offset = {x: 0, y:0};
+var offset = { x: 0, y: 0 };
 var isDown = false;
 
 const track_elem = document.getElementById("track");
+track_elem.dataset.lastX = 0;
 
-track_elem.addEventListener(
+window.addEventListener(
   "mousedown",
   function (e) {
     isDown = true;
     offset = {
-        x: track_elem.offsetLeft - e.clientX, 
-        y: track_elem.offsetTop - e.clientY
+      x: track_elem.offsetLeft - e.clientX,
+      y: track_elem.offsetTop - e.clientY,
     };
   },
   true
 );
 
-document.addEventListener(
+window.addEventListener(
   "mouseup",
-  function () {
+  function (e) {
     isDown = false;
   },
   true
 );
 
-document.addEventListener(
+window.addEventListener(
   "mousemove",
   function (event) {
     event.preventDefault();
@@ -33,7 +34,11 @@ document.addEventListener(
         x: event.clientX,
         y: event.clientY,
       };
-      track_elem.style.left = mousePosition.x + offset.x + "px";
+      let maxPosition = (mousePosition.x + offset.x);
+      let maxWidth = window.innerWidth / 2;
+      let percentage = (maxPosition / maxWidth) * 100;
+
+      track_elem.style.transform = `translate(${percentage}%, -50%)`;
     }
   },
   true
