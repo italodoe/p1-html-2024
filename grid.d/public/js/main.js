@@ -23,7 +23,7 @@ window.addEventListener(
     const rect = target.getBoundingClientRect();
     const x = offset.x - rect.left;
     const y = offset.y - rect.top;
-    target.style.cssText += `---mouse-x: ${x}px; ---mouse-y: ${y}px;`
+    target.style.cssText += `---mouse-x: ${x}px; ---mouse-y: ${y}px;`;
   },
   true
 );

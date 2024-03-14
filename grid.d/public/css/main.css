@@ -51,17 +51,17 @@ body {
 .card:before {
   content: " ";
   background: radial-gradient(
-    33rem circle at var(---mouse-x) var(---mouse-y),
+    63rem circle at var(---mouse-x) var(---mouse-y),
     rgba(var(---bg-r), var(---bg-g), var(---bg-b), 0.082),
-    transparent 44%
+    transparent 34%
   );
   height: 100%;
   width: 100%;
   position: absolute;
   overflow: hidden;
   opacity: 0;
-  transition: opacity 333ms;
- }
+  transition: opacity 433ms;
+}
 .card:hover:before {
   opacity: 1;
 }
