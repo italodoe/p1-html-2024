@@ -30,7 +30,7 @@ body {
 #track {
   display: flex;
   gap: 3.5vmin;
- position: absolute;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(0%, -50%);
