@@ -51,7 +51,7 @@ body {
   content: " ";
   background: radial-gradient(
     33rem circle at 10rem 10rem,
-    rgba(255, 255, 255, 0.082),
+    rgba(var(---bg-r), var(---bg-g), var(---bg-b), 0.082),
     transparent 44%
   );
   height: 100%;
