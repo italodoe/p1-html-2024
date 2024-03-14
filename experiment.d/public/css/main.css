@@ -27,6 +27,7 @@ body {
   object-position: 100% center;
   z-index: 1;
   position: relative;
+  user-select: none;
 }
 
 #track {
