@@ -21,6 +21,9 @@ window.addEventListener(
   "mouseup",
   function (e) {
     isDown = false;
+    track_elem.dataset.lastX = e.clientX;
+    track_elem.dataset.lastPercentage = track_elem.dataset.percentage;
+
   },
   true
 );
@@ -34,11 +37,13 @@ window.addEventListener(
         x: event.clientX,
         y: event.clientY,
       };
-      let maxPosition = (mousePosition.x + offset.x);
+      let maxPositionX = parseFloat(track_elem.dataset.lastX) - mousePosition.x;
       let maxWidth = window.innerWidth / 2;
-      let percentage = (maxPosition / maxWidth) * 100;
-
+      let percentage = (maxPositionX / maxWidth) * 100;
+      let nextPercentage = parseFloat(track_elem.dataset.lastPercentage) + percentage;
+      track_elem.dataset.percentage = nextPercentage;
       track_elem.style.transform = `translate(${percentage}%, -50%)`;
+
     }
   },
   true
