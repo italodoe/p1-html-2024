@@ -2,6 +2,7 @@
   --var-font-family: system-ui, sans-serif;
   --main-bg: rgb(13, 0, 44);
   --main-color: white;
+  --var-border-radius: 1rem;
 }
 
 html {
@@ -40,8 +41,8 @@ body {
 
 }
 
-
 .card{
-  background-color: rgba(255, 255, 255, 0.1);  
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--var-border-radius);
 }
 
