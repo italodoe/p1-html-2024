@@ -44,5 +44,14 @@ body {
   display: block;
   padding: clamp(0.25rem, 0.5vw, 1rem) 0;
   margin-left: clamp(3rem, 15vw, 48rem);
+  cursor: default;
   
+}
+.profile-items:hover > .profile-item{
+  opacity: 0.24;
+  transition: opacity 111ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.profile-items:hover > .profile-item:hover{
+  opacity: 1;
 }
