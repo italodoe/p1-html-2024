@@ -4,6 +4,7 @@
   --main-color: white;
   --var-border-radius: 1rem;
   --border-color: blue;
+  font-family:   monospace;
 }
 
 html {
@@ -42,10 +43,19 @@ body {
   position: absolute;
   top: 50%; right: 50%;
   transform: translate(50%,-50%);
+} 
+
+.content{
+  width: calc(100% - 10vmin);
+  height: 100%;
+  padding: 5vmin;
+  overflow: hidden;
 }
 
 .title{
   font-size: 2.2rem;
+  margin-block-end: 3vmin;
+  font-weight: 800;
 }
 .sub-title{
   font-size: 1.2rem;
