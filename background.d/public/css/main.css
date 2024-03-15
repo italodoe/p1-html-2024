@@ -45,6 +45,7 @@ body {
   padding: clamp(0.25rem, 0.5vw, 1rem) 0;
   margin-left: clamp(3rem, 15vw, 48rem);
   cursor: default;
+  z-index: 2;
   
 }
 .profile-items:hover > .profile-item{
@@ -54,4 +55,19 @@ body {
 
 .profile-items:hover > .profile-item:hover{
   opacity: 1;
+}
+.bg-profile{
+  width: 100vw;
+  height: 100vh;
+
+  background-image: radial-gradient(
+    rgba(142, 158, 0, 0.13) 4.555%,
+    transparent 3%
+  );
+  background-position:  0 0;
+  background-size: 11vmin 11vmin;
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: 1;
 }
