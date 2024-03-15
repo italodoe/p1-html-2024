@@ -66,14 +66,13 @@ body {
   z-index: 1;
 }
 
-.content{
-  background: radial-gradient(
-    rgba(238, 255, 7, 0.12) 6%,
-    transparent 2%
-  );
+.content {
+  background: radial-gradient(rgba(238, 255, 7, 0.12) 6%, transparent 2%);
   background-position: 0% 0%;
   background-size: 5vmin 5vmin;
-
+  cursor: default;
+  user-select: none;
+  transition: background-size 800ms;
 }
 
 .title {
@@ -109,6 +108,12 @@ body {
   opacity: 1;
   min-height: 160%;
   transition: transform 400ms;
+}
+
+.card:hover #video_bg + .content {
+  background-position: 30% 30%;
+  background-size: 1.5vmin 1.5vmin;
+  transform: translateZ(30%);
 }
 
 @keyframes gradient {
