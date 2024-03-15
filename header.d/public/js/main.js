@@ -40,3 +40,40 @@ window.addEventListener(
   },
   true
 );
+
+const phrase_one = document.getElementById("phrase_two");
+const original_phrase = phrase_one.textContent;
+console.log(phrase_one.textContent);
+let text = "";
+
+setInterval(() => {
+    text = "";
+  for (const letter of phrase_one.textContent) {
+    if (letter !== " ") 
+        text += randomString(1, false);
+    else 
+        text += " ";
+
+    console.log(letter);
+  }
+  phrase_one.textContent = "";
+  phrase_one.textContent = text;
+}, 66);
+
+console.log(text);
+
+function randomString(length, Uppercase = true) {
+  let str = "";
+  const character_case = Uppercase
+    ? "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    : "abcdefghijklmnopqrstuvwxyz";
+  const charactersLength = character_case.length;
+  let counter = 0;
+  while (counter < length) {
+    str += character_case.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+  return str;
+}
+
+console.log(randomString(5, false));
