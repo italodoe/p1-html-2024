@@ -51,8 +51,11 @@ body {
   position: absolute;
   width: 64vmin;
   height: 95vmin;
-  background: #041f31;
-  background: conic-gradient(from 90deg, #041f31, #1f0a2d);
+  background: #155196;
+  background: linear-gradient(135deg, #155196, #05183b, #1d0075, #3c1d2b);
+
+	background-size: 300% 100%;
+	animation: gradient 15s ease infinite;
 }
 
 .content {
@@ -61,17 +64,18 @@ body {
   padding: 5vmin;
   overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 
 .title {
-  font-size: 2.2rem;
+  font-size: 4rem;
   margin-block-end: 3vmin;
   font-weight: 800;
 }
 .sub-title {
-  font-size: 1.2rem;
+  font-size: 3.02rem;
   opacity: 0;
-  transition: opacity 333ms cubic-bezier(0.13, 0.21, 0.54, 0.39);
+  transition: all 533ms ease-in-out;
   transform: translateY(-10%);
 }
 
@@ -79,4 +83,33 @@ body {
   opacity: 1;
   transform: translateY(-30%);
   transition: transform 400ms;
+}
+
+#video_bg {
+  min-height: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+
+  transition: opacity 733ms cubic-bezier(0.09, 0.1, 0.24, 0.99);
+}
+
+.card:hover #video_bg {
+  opacity: 1;
+  min-height: 160%;
+  transition: transform 400ms;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
