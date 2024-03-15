@@ -37,6 +37,7 @@ body {
   display: grid;
   place-items: center;
   position: absolute;
+  overflow: hidden;
 }
 
 .layer .title {
@@ -46,9 +47,29 @@ body {
 
 .layer.left {
   background-color: aquamarine;
+  color: black
 }
 
 .layer.right {
   background-color: rgb(150, 31, 230);
-  opacity: .5;
+  color: red;
+}
+
+#glow {
+  width: 650px;
+  height: 650px;
+  background-color: rgba(22, 114, 22, 0.356);
+  background: linear-gradient(
+    315deg,
+    rgb(194, 55, 185) 3%,
+    rgb(18, 104, 190) 38%,
+    rgba(48, 238, 226, 1) 68%,
+    rgba(255, 25, 25, 1) 98%
+  );
+  /* animation: gradient 15s ease infinite; */
+  filter: blur(200px);
+  border-radius: 300px;
+  opacity: 1;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
 }
