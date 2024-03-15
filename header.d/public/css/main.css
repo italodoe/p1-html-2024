@@ -49,12 +49,12 @@ body {
 
 .layer.left {
   background-color: aquamarine;
-  color: black
+  color: black;
 }
 
 .layer.right {
   background-color:aquamarine;
-  color: red;
+  color: black;
 }
 
 #glow {

@@ -6,7 +6,7 @@ window.addEventListener(
     isDown = true;
     offset = {
       x: e.clientX,
-      y:e.clientY,
+      y: e.clientY,
     };
   },
   true
@@ -33,9 +33,10 @@ window.addEventListener(
       mousePosition.y - 300
     }px)`;
     // let offset = ;
-    const percentage = mousePosition.x / this.window.innerWidth * 100
-    document.getElementById('right_layer').style.width = `calc(${percentage}% - 10px)`;
-
+    const percentage = (mousePosition.x / this.window.innerWidth) * 100;
+    document.getElementById(
+      "right_layer"
+    ).style.width = `calc(${percentage}% - 10px)`;
   },
   true
 );
