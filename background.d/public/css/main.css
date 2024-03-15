@@ -56,18 +56,28 @@ body {
 .profile-items:hover > .profile-item:hover{
   opacity: 1;
 }
+
 .bg-profile{
   width: 100vw;
   height: 100vh;
-
   background-image: radial-gradient(
-    rgba(142, 158, 0, 0.13) 4.555%,
+    rgba(58, 99, 212, 0.13) 5.555%,
     transparent 3%
   );
   background-position:  0 0;
-  background-size: 11vmin 11vmin;
+  background-size: 12.25vmin 12.25vmin;
   position: absolute;
   top:0;
   left: 0;
   z-index: 1;
+  transition: opacity 522ms, background-size 522ms;
+}
+
+.profile-items:hover ~ .bg-profile{
+  background-size: 11.1vmin 11.1vmin;
+  background-image: radial-gradient(
+    rgba(250, 85, 250, 0.13) 4.8555%,
+    transparent 3%
+  );
+  opacity: 0.64;
 }
