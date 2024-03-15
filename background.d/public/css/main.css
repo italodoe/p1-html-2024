@@ -1,0 +1,48 @@
+:root {
+  --var-font-family: system-ui, sans-serif;
+  --main-bg: rgb(13, 0, 44);
+  --main-color: white;
+  --var-border-radius: 1rem;
+  --border-color: blue;
+  font-family: monospace;
+}
+
+html {
+  font-family: var(--var-font-family);
+  background-color: var(--main-bg);
+  color: var(--main-color);
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 1.2rem;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: rgb(84, 84, 84);
+  background: linear-gradient(
+    -140deg,
+    rgba(26, 2, 2, 0.87) 1%,
+    rgb(0, 0, 0) 50%,
+    rgba(20, 2, 3, 0.87) 100%
+  );
+  margin: 0;
+  padding: 0;
+}
+
+.profile {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.profile-items{
+  color: white;
+  font-size: clamp(2rem,  15vw, 4.5rem);;
+  font-family: 'DM Sans';
+  display: block;
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0;
+  margin-left: clamp(3rem, 15vw, 48rem);
+  
+}
