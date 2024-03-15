@@ -43,6 +43,16 @@ body {
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
+  overflow: hidden;
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  width: 64vmin;
+  height: 95vmin;
+  background: #041f31;
+  background: conic-gradient(from 90deg, #041f31, #1f0a2d);
 }
 
 .content {
@@ -50,6 +60,7 @@ body {
   height: 100%;
   padding: 5vmin;
   overflow: hidden;
+  position: relative;
 }
 
 .title {
