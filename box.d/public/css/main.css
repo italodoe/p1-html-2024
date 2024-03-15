@@ -3,6 +3,7 @@
   --main-bg: rgb(13, 0, 44);
   --main-color: white;
   --var-border-radius: 1rem;
+  --border-color: blue;
 }
 
 html {
@@ -21,9 +22,20 @@ body {
   background: rgb(84, 84, 84);
   background: linear-gradient(
     140deg,
-    rgb(0, 0, 0) 0%,
+    rgba(2, 5, 20, 0.87)  0%,
+    rgb(0, 0, 0) 50%,
     rgba(2, 5, 20, 0.87) 100%
   );
   margin: 0;
   padding: 0;
+}
+
+.card{
+  border: 0.5rem solid var(--border-color);
+  position: relative;
+  width: 36rem;
+  aspect-ratio: 1 / 1.53;
+
+
+
 }
