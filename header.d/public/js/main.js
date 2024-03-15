@@ -5,8 +5,8 @@ window.addEventListener(
   function (e) {
     isDown = true;
     offset = {
-      x: track_elem.offsetLeft - e.clientX,
-      y: track_elem.offsetTop - e.clientY,
+      x: e.clientX,
+      y:e.clientY,
     };
   },
   true
@@ -24,7 +24,7 @@ window.addEventListener(
   "mousemove",
   function (event) {
     event.preventDefault();
-    
+
     mousePosition = {
       x: event.clientX,
       y: event.clientY,
@@ -32,6 +32,9 @@ window.addEventListener(
     glow_elem.style.transform = `translate(${mousePosition.x - 300}px, ${
       mousePosition.y - 300
     }px)`;
+
+    const percentage = mousePosition.x / this.window.innerWidth * 100
+    document.getElementById('right_layer').style.width = percentage + "%"
 
   },
   true

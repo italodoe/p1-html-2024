@@ -43,6 +43,8 @@ body {
 .layer .title {
   font-size: 7.4vmin;
   font-family: "Kumbh Sans", sans-serif;
+  margin: 0 15vw;
+  width: 70vw;
 }
 
 .layer.left {
@@ -51,7 +53,7 @@ body {
 }
 
 .layer.right {
-  background-color: rgb(150, 31, 230);
+  background-color:aquamarine;
   color: red;
 }
 
