@@ -32,9 +32,9 @@ window.addEventListener(
     glow_elem.style.transform = `translate(${mousePosition.x - 300}px, ${
       mousePosition.y - 300
     }px)`;
-
+    // let offset = ;
     const percentage = mousePosition.x / this.window.innerWidth * 100
-    document.getElementById('right_layer').style.width = percentage + "%"
+    document.getElementById('right_layer').style.width = `calc(${percentage}% - 10px)`;
 
   },
   true
