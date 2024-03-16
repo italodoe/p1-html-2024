@@ -178,13 +178,13 @@ body {
 }
 
 .btn-hb:focus > span:nth-child(1) {
-  width: var(--var-width-max);
+  width: calc(var(--var-width-max) + 0.12rem);
   height: .1085rem;
   transform-origin: top left;
   transform:  rotate(45deg) ;
 }
 .btn-hb:focus > span:nth-child(3) {
-  width: var(--var-width-max);
+  width: calc(var(--var-width-max) + 0.12rem);
   height: .1085rem;
   transform-origin: bottom left;
   transform:  rotate(-45deg) ;
