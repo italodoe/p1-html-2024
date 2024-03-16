@@ -145,7 +145,7 @@ body {
   --var-height: 0.1085rem;
   z-index: 1;
 }
-.btn{
+.btn {
   background: transparent;
   border: 0;
 }
@@ -156,6 +156,10 @@ body {
   justify-content: center;
   flex-direction: column;
   padding: 1rem;
+}
+
+.btn-hb.active-bg{
+  opacity: 0;
 }
 
 .profile-burger .btn-hb > span {
@@ -284,14 +288,12 @@ body {
   position: absolute;
   inset: 0px;
   z-index: 4;
-  background: rgb(9, 46, 102);
   clip-path: circle(0% at 82% 4%);
   transition-duration: 200ms;
 }
 
-.sidebar.active-bg{
+.sidebar.active-bg {
   clip-path: circle(100% at 82% 4%);
-
 }
 
 .menu {
@@ -300,6 +302,7 @@ body {
   align-items: flex-end;
   justify-content: flex-start;
   flex-direction: column;
+
 }
 
 .menu-items {
@@ -311,8 +314,9 @@ body {
   margin-top: clamp(3rem, 15vw, 48rem);
   margin-right: clamp(3rem, 15vw, 48rem);
   cursor: default;
-  z-index: 2;
   text-align: right;
+  z-index: 3;
+
 }
 
 .menu-item {
@@ -330,14 +334,13 @@ body {
 .menu-items:hover > .menu-item:hover {
   opacity: 1;
   filter: blur(0);
-  text-shadow: none;
-}
+  text-shadow: -2px -1px 20px #ffffff73;}
 
 .bg-menu {
   width: 100vw;
   height: 100vh;
   background-image: radial-gradient(
-    rgba(131, 144, 168, 0.13) 6.555%,
+    rgba(0, 9, 26, 0.13) 7.555%,
     transparent 3%
   );
   background-position: 0 0;
@@ -345,18 +348,57 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   transition: opacity 522ms, background-size 522ms, background-position 522ms;
 }
 
 .menu-items:hover ~ .bg-menu {
   background-size: 11.1vmin 11.1vmin;
   background-image: radial-gradient(
-    rgba(255, 19, 255, 0.13) 6.8555%,
+    rgba(132, 0, 255, 0.39) 6.8555%,
     transparent 3%
   );
   opacity: 0.64;
 }
+
+.bg-menu-picture {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(31, 31, 31, 0.377);
+  background-image: url('../korn.mp4');
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: opacity 522ms, background-size 522ms, background-position 522ms;
+}
+
+.menu-items:hover ~ .bg-menu-picture {
+  opacity: 0.64;
+}
+
+.bg-menu-picture #bg_menu_picture_video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.87;
+}
+.bg-menu-picture #bg_menu_picture_video:before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+}
+
+/* menu close */
 
 .menu .menu-close {
   color: white;
@@ -372,6 +414,7 @@ body {
   transition-duration: 200ms;
   opacity: 0.56;
   font-weight: 900;
+  z-index: 3;
 
 }
 .menu .menu-close:after {

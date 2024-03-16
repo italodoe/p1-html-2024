@@ -25,19 +25,23 @@ const HelperClass = {
 
 //helpers
 
-// random card inside glow
-function randomGenerateColor() {
-  return [...Array(3).keys()].map(() => Math.floor(Math.random() * 256));
+
+function runGenerateRandomCardColor(){
+  // random card inside glow
+  function randomGenerateColor() {
+    return [...Array(3).keys()].map(() => Math.floor(Math.random() * 256));
+  }
+
+  function setRandomColorStyle(card) {
+    let randColor = randomGenerateColor();
+    return (card.style = `---bg-r: ${randColor[0]};---bg-g: ${randColor[1]};---bg-b: ${randColor[2]}`);
+  }
+
+  for (const card of document.querySelectorAll(".card-h, .card-m")) {
+    setRandomColorStyle(card);
+  }
 }
 
-function setRandomColorStyle(card) {
-  let randColor = randomGenerateColor();
-  return (card.style = `---bg-r: ${randColor[0]};---bg-g: ${randColor[1]};---bg-b: ${randColor[2]}`);
-}
-
-for (const card of document.querySelectorAll(".card-h, .card-m")) {
-  setRandomColorStyle(card);
-}
 
 window.addEventListener(
   "mousedown",
@@ -163,7 +167,7 @@ function setOriginalPhrase() {
   }, 21);
 }
 
-runRandomisation();
+
 
 // menu background
 for (const [index, item] of document.querySelectorAll(".menu-item").entries()) {
@@ -193,3 +197,8 @@ function onClickMenu(e) {
   HelperClass.toggleClass(menu_close_btn, "active-bg");
   HelperClass.toggleClass(sidebar, "active-bg");
 }
+
+
+//Run
+runRandomisation();
+runGenerateRandomCardColor();
