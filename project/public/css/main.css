@@ -5,8 +5,6 @@
   --var-border-radius: 1rem;
   --border-color: rgb(22, 22, 87);
   font-family: monospace;
-
-
 }
 
 html {
@@ -20,11 +18,7 @@ html {
     rgb(0, 0, 0) 50%,
     rgba(1, 24, 11, 0.87) 90%
   );
-  background-size: 100% 100%;
-
-  -webkit-animation: gradient-linear-negative 30s ease infinite;
-  -moz-animation: gradient-linear-negative 30s ease infinite;
-  animation: gradient-linear-negative 30s ease infinite;
+  background-size: 120% 120%;
 }
 
 body {
@@ -39,23 +33,40 @@ body {
     rgb(0, 0, 0) 50%,
     rgba(3, 8, 22, 0.57) 70%
   );
-   padding: 0;
-   background-size: 100% 100%;
+  padding: 0;
+  background-size: 130% 120%;
 
-    -webkit-animation: gradient-linear 30s ease infinite;
-    -moz-animation: gradient-linear 30s ease infinite;
-    animation: gradient-linear 30s ease infinite;
-
+  -webkit-animation: gradient-linear 30s ease infinite;
+  -moz-animation: gradient-linear 30s ease infinite;
+  animation: gradient-linear 30s ease infinite;
 }
 
+@keyframes gradient-linear {
+  0% {
+    background-position: 54% 0%;
+  }
+  50% {
+    background-position: 47% 100%;
+  }
+  100% {
+    background-position: 54% 0%;
+  }
+}
 
-@keyframes gradient-linear  {
-  0%{background-position:54% 0%}
-  50%{background-position:47% 100%}
-  100%{background-position:54% 0%}
+.wrapper-h {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 8vmax 40rem;
+
+  row-gap: 0.4rem;
+  justify-content: center;
+  position: relative;
+ }
+
+.card-h {
+  background-color: rgba(255, 255, 255, 0.0871);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 }
-@keyframes gradient-linear-negative  {
-  0%{background-position:-54% 0%}
-  50%{background-position:-47% -100%}
-  100%{background-position:-54% 0%}
-}
+
