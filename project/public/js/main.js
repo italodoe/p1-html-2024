@@ -4,6 +4,7 @@ var isDown = false;
 var interval = null;
 var isIntervalActive = true;
 
+// random card inside glow
 function randomGenerateColor() {
   return [...Array(3).keys()].map(() => Math.floor(Math.random() * 256));
 }
@@ -63,7 +64,7 @@ window.addEventListener(
     }
     //inside cards
     const target = e.target;
-    console.log(target);
+    // console.log(target);
     const rect = target.getBoundingClientRect();
     const x = offset.x - rect.left;
     const y = offset.y - rect.top;
@@ -72,8 +73,7 @@ window.addEventListener(
     if (target.classList.contains("nav-top") && isIntervalActive) {
       stopRandomisation();
       setOriginalPhrase();
-    } 
-
+    }
   },
   true
 );
@@ -95,20 +95,26 @@ function randomString(length, Uppercase = true) {
 }
 
 const phrase_one = document.getElementById("profile_name");
+const phrase_two = document.getElementById("profile_career");
 const original_phrase = phrase_one.innerText;
-let text = "";
+const original_phrase2 = phrase_two.innerText;
 
 const runRandomisation = () => {
   interval = setInterval(() => {
     isIntervalActive = true;
-    text = "";
-    for (const letter of phrase_one.innerText) {
-      if (letter !== " ") text += randomString(1, false);
-      else text += " ";
-    }
-    phrase_one.textContent = "";
-    phrase_one.textContent = text;
-  }, 63);
+
+    const getRandomText = (phrase) => {
+      let text = "";
+      for (const letter of phrase.innerText) {
+        if (letter !== " ") text += randomString(1, false);
+        else text += " ";
+      }
+      return text;
+    };
+
+    phrase_one.textContent = getRandomText(phrase_one);
+    phrase_two.textContent = getRandomText(phrase_two);
+  }, 73);
 };
 
 const stopRandomisation = () => {
@@ -119,19 +125,21 @@ const stopRandomisation = () => {
 function setOriginalPhrase() {
   let index = 0;
 
-  function runchange(index_inside) {
-    let text = phrase_one.innerText;
+  function runchange(index_inside, phrase, original) {
+    let text = phrase.innerText;
     str = text.split("");
-    str[index_inside] = original_phrase[index_inside];
+    str[index_inside] = original[index_inside];
     text = str.join("");
-    phrase_one.innerText = text;
+    phrase.innerText = text;
   }
 
   const timer = setInterval(() => {
-    runchange(index++);
-    if (index === original_phrase.length) 
+    runchange(index, phrase_one, original_phrase);
+    runchange(index++, phrase_two, original_phrase2);
+
+    if (index === Math.max(original_phrase.length, original_phrase2.length))
       clearInterval(timer);
-  }, 31);
+  }, 21);
 }
 
 runRandomisation();
