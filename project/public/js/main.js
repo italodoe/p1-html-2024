@@ -7,7 +7,7 @@ function setRandomColorStyle(card) {
   return (card.style = `---bg-r: ${randColor[0]};---bg-g: ${randColor[1]};---bg-b: ${randColor[2]}`);
 }
 
-for (const card of document.querySelectorAll(".card-h")) {
+for (const card of document.querySelectorAll(".card-h, .card-m")) {
   setRandomColorStyle(card);
 }
 
