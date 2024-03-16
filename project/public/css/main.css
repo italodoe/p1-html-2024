@@ -326,23 +326,23 @@ body {
   text-shadow: none;
 }
 
-.bg-menu{
+.bg-menu {
   width: 100vw;
   height: 100vh;
   background-image: radial-gradient(
     rgba(131, 144, 168, 0.13) 6.555%,
     transparent 3%
   );
-  background-position:  0 0;
+  background-position: 0 0;
   background-size: 12.25vmin 12.25vmin;
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   z-index: 1;
   transition: opacity 522ms, background-size 522ms, background-position 522ms;
 }
 
-.profile-items:hover ~ .bg-menu {
+.menu-items:hover ~ .bg-menu {
   background-size: 11.1vmin 11.1vmin;
   background-image: radial-gradient(
     rgba(255, 19, 255, 0.13) 6.8555%,
@@ -383,6 +383,3 @@ body {
 .menu .menu-close:hover:after {
   width: 100%;
 }
-
-
- 

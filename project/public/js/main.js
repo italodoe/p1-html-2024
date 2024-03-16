@@ -143,3 +143,17 @@ function setOriginalPhrase() {
 }
 
 runRandomisation();
+
+// menu background
+for (const [index, item] of document.querySelectorAll(".menu-item").entries()) {
+  item.dataset.index = index;
+  item.addEventListener("mouseover", onMouseOverHandser);
+}
+
+function onMouseOverHandser(e) {
+  let index = e.target.dataset.index;
+  let threshold = 25;
+  document.getElementById("bg_menu").style.backgroundPosition = `0 ${
+    (index * threshold + threshold * index) * -1
+  }%`;
+}
