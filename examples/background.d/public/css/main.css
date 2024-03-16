@@ -1,0 +1,83 @@
+:root {
+  --var-font-family: system-ui, sans-serif;
+  --main-bg: rgb(13, 0, 44);
+  --main-color: white;
+  --var-border-radius: 1rem;
+  --border-color: blue;
+  font-family: monospace;
+}
+
+html {
+  font-family: var(--var-font-family);
+  background-color: var(--main-bg);
+  color: var(--main-color);
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 1.2rem;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: rgb(84, 84, 84);
+  background: linear-gradient(
+    -140deg,
+    rgba(26, 2, 2, 0.87) 1%,
+    rgb(0, 0, 0) 50%,
+    rgba(20, 2, 3, 0.87) 100%
+  );
+  margin: 0;
+  padding: 0;
+}
+
+.profile {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.profile-items{
+  color: white;
+  font-size: clamp(2rem,  15vw, 4.5rem);;
+  font-family: 'DM Sans';
+  display: block;
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0;
+  margin-left: clamp(3rem, 15vw, 48rem);
+  cursor: default;
+  z-index: 2;
+  
+}
+.profile-items:hover > .profile-item{
+  opacity: 0.24;
+  transition: opacity 111ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.profile-items:hover > .profile-item:hover{
+  opacity: 1;
+}
+
+.bg-profile{
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(
+    rgba(131, 144, 168, 0.13) 6.555%,
+    transparent 3%
+  );
+  background-position:  0 0;
+  background-size: 12.25vmin 12.25vmin;
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: 1;
+  transition: opacity 522ms, background-size 522ms, background-position 522ms;
+}
+
+.profile-items:hover ~ .bg-profile{
+  background-size: 11.1vmin 11.1vmin;
+  background-image: radial-gradient(
+    rgba(255, 19, 255, 0.13) 6.8555%,
+    transparent 3%
+  );
+  opacity: 0.64;
+}
