@@ -287,19 +287,18 @@ body {
   background: rgb(9, 46, 102);
 }
 
-
 .menu {
   height: 100vh;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
-.menu-items{
+.menu-items {
   color: white;
-  font-size: clamp(2rem,  15vw, 4.5rem);;
-  font-family: 'DM Sans';
+  font-size: clamp(2rem, 15vw, 4.5rem);
+  font-family: "DM Sans";
   display: block;
   padding: clamp(0.25rem, 0.5vw, 1rem) 0;
   margin-top: clamp(3rem, 15vw, 48rem);
@@ -307,29 +306,43 @@ body {
   cursor: default;
   z-index: 2;
   text-align: right;
-  
 }
 
-.menu-item{
-  transition: opacity 411ms, transform 411ms ,filter 444ms  ;
+.menu-item {
+  transition: opacity 411ms, transform 411ms, filter 444ms;
 }
 
-.menu-items:hover > .menu-item{
+.menu-items:hover > .menu-item {
   opacity: 0.24;
   cursor: pointer;
   transform: translateZ(10px);
   filter: blur(4.6px);
   text-shadow: 0px -1px 9px #ffffff56;
-
 }
 
-.menu-items:hover > .menu-item:hover{
+.menu-items:hover > .menu-item:hover {
   opacity: 1;
   filter: blur(0);
   text-shadow: none;
 }
 
-.profile-items:hover ~ .bg-menu{
+.bg-menu{
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(
+    rgba(131, 144, 168, 0.13) 6.555%,
+    transparent 3%
+  );
+  background-position:  0 0;
+  background-size: 12.25vmin 12.25vmin;
+  position: absolute;
+  top:0;
+  left: 0;
+  z-index: 1;
+  transition: opacity 522ms, background-size 522ms, background-position 522ms;
+}
+
+.profile-items:hover ~ .bg-menu {
   background-size: 11.1vmin 11.1vmin;
   background-image: radial-gradient(
     rgba(255, 19, 255, 0.13) 6.8555%,
@@ -337,3 +350,39 @@ body {
   );
   opacity: 0.64;
 }
+
+.menu .menu-close {
+  color: white;
+  font-size: clamp(1rem, 10vw, 2.5rem);
+  font-family: "DM Sans";
+  display: block;
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0;
+  margin-top: 1rem;
+  margin-right: clamp(3rem, 15vw, 48rem);
+  cursor: default;
+  z-index: 2;
+  text-align: right;
+
+  transition: all 200ms;
+  opacity: 0.6;
+}
+.menu .menu-close:after {
+  content: "";
+  width: 0;
+  height: 2px;
+  display: block;
+  background: white;
+  transition: all 200ms;
+  position: relative;
+  top: -41%;
+}
+.menu .menu-close:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.menu .menu-close:hover:after {
+  width: 100%;
+}
+
+
+ 
