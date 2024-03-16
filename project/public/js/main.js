@@ -8,7 +8,6 @@ function setRandomColorStyle(card) {
 }
 
 for (const card of document.querySelectorAll(".card-h")) {
-  console.log(card);
   setRandomColorStyle(card);
 }
 
