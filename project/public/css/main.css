@@ -145,15 +145,16 @@ body {
   --var-height: 0.1085rem;
   z-index: 1;
 }
-
-.btn-hb {
+.btn{
   background: transparent;
+  border: 0;
+}
+.btn-hb {
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  border: 0;
   padding: 1rem;
 }
 
@@ -193,7 +194,6 @@ body {
   width: 0;
   opacity: 0;
 }
-
 /* main */
 
 .main {
@@ -285,6 +285,13 @@ body {
   inset: 0px;
   z-index: 4;
   background: rgb(9, 46, 102);
+  clip-path: circle(0% at 82% 4%);
+  transition-duration: 200ms;
+}
+
+.sidebar.active-bg{
+  clip-path: circle(100% at 82% 4%);
+
 }
 
 .menu {
@@ -362,9 +369,10 @@ body {
   cursor: default;
   z-index: 2;
   text-align: right;
+  transition-duration: 200ms;
+  opacity: 0.56;
+  font-weight: 900;
 
-  transition: all 200ms;
-  opacity: 0.6;
 }
 .menu .menu-close:after {
   content: "";
@@ -374,7 +382,7 @@ body {
   background: white;
   transition: all 200ms;
   position: relative;
-  top: -41%;
+  top: -46%;
 }
 .menu .menu-close:hover {
   opacity: 1;

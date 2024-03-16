@@ -4,6 +4,27 @@ var isDown = false;
 var interval = null;
 var isIntervalActive = true;
 
+const HelperClass = {
+  addClass: (elem, className) => {
+    return elem.classList.add(className);
+  },
+  removeClass: (elem, className) => {
+    return elem.classList.remove(className);
+  },
+  hasClass: (elem, className) => {
+    return elem.classList.contains(className);
+  },
+  toggleClass: (elem, className, force = null) => {
+    let addClass =
+      force !== null ? force : !HelperClass.hasClass(elem, className);
+    return addClass
+      ? HelperClass.addClass(elem, className)
+      : HelperClass.removeClass(elem, className);
+  },
+};
+
+//helpers
+
 // random card inside glow
 function randomGenerateColor() {
   return [...Array(3).keys()].map(() => Math.floor(Math.random() * 256));
@@ -156,4 +177,19 @@ function onMouseOverHandser(e) {
   document.getElementById("bg_menu").style.backgroundPosition = `0 ${
     (index * threshold + threshold * index) * -1
   }%`;
+}
+
+//open/close sidebar
+const sidebar = document.getElementById("sidebar");
+const menu_btn = document.getElementById("menu_btn");
+const menu_close_btn = document.getElementById("menu_close_btn");
+
+if (menu_btn) menu_btn.addEventListener("click", onClickMenu);
+
+if (menu_close_btn) menu_close_btn.addEventListener("click", onClickMenu);
+
+function onClickMenu(e) {
+  HelperClass.toggleClass(menu_btn, "active-bg");
+  HelperClass.toggleClass(menu_close_btn, "active-bg");
+  HelperClass.toggleClass(sidebar, "active-bg");
 }
