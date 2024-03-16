@@ -355,7 +355,7 @@ body {
 .menu-items:hover ~ .bg-menu {
   background-size: 11.1vmin 11.1vmin;
   background-image: radial-gradient(
-    rgba(132, 0, 255, 0.39) 6.8555%,
+    rgba(255, 255, 255, 0.295) 5.8%,
     transparent 3%
   );
   opacity: 0.64;
@@ -374,7 +374,7 @@ body {
 }
 
 .menu-items:hover ~ .bg-menu-picture {
-  opacity: 0.64;
+  opacity: 0.98764;
 }
 
 .bg-menu-picture #bg_menu_picture_video {
