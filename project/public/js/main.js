@@ -1,3 +1,5 @@
+const glow_elem = document.getElementById("glow");
+
 function randomGenerateColor() {
   return [...Array(3).keys()].map(() => Math.floor(Math.random() * 256));
 }
@@ -12,12 +14,52 @@ for (const card of document.querySelectorAll(".card-h, .card-m")) {
 }
 
 window.addEventListener(
+  "mousedown",
+  function (e) {
+    isDown = true;
+    offset = {
+      x: e.clientX,
+      y: e.clientY,
+    };
+    glow_elem.style.transform = `translate(${offset.x - 300}px, ${
+      offset.y - 300
+    }px)`;
+    glow_elem.style.opacity = `0.28`;
+
+  },
+  true
+);
+
+window.addEventListener(
+  "mouseup",
+  function (e) {
+    isDown = false;
+    offset = {
+      x: e.clientX,
+      y: e.clientY,
+    };
+    glow_elem.style.opacity = `0`;
+  },
+  true
+);
+
+window.addEventListener(
   "mousemove",
   function (e) {
     offset = {
       x: e.clientX,
       y: e.clientY,
     };
+    //glow
+
+    if (isDown) {
+      glow_elem.style.transform = `translate(${offset.x - 300}px, ${
+        offset.y - 300
+      }px)`;
+      glow_elem.style.opacity = `0.28`;
+      
+    }
+    //inside cards
     const target = e.target;
     console.log(target);
     const rect = target.getBoundingClientRect();
