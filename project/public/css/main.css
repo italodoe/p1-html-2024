@@ -61,12 +61,36 @@ body {
   row-gap: 0.4rem;
   justify-content: center;
   position: relative;
- }
+}
 
 .card-h {
-  background-color: rgba(255, 255, 255, 0.0871);
+  background-color: rgba(97, 97, 97, 0.13);
   position: relative;
   overflow: hidden;
   width: 100%;
 }
 
+.card-h:before {
+  content: " ";
+  background: radial-gradient(
+    63rem circle at var(---mouse-x) var(---mouse-y),
+    rgba(var(---bg-r), var(---bg-g), var(---bg-b), 0.082),
+    transparent 34%
+  );
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 433ms;
+}
+.card-h:hover:before {
+  opacity: 1;
+}
+
+.card-h-inside {
+  width: 100%;
+  height: calc(100% - 4px);
+  background-color: #0f0d0d63;
+  margin: 2px;
+}
