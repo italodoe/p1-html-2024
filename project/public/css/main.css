@@ -1,0 +1,61 @@
+:root {
+  --var-font-family: system-ui, sans-serif;
+  --main-bg: rgb(11, 41, 3);
+  --main-color: white;
+  --var-border-radius: 1rem;
+  --border-color: rgb(22, 22, 87);
+  font-family: monospace;
+
+
+}
+
+html {
+  font-family: var(--var-font-family);
+  background-color: var(--main-bg);
+  color: var(--main-color);
+  box-sizing: border-box;
+  background: linear-gradient(
+    140deg,
+    rgba(3, 31, 28, 0.87) 5%,
+    rgb(0, 0, 0) 50%,
+    rgba(1, 24, 11, 0.87) 90%
+  );
+  background-size: 100% 100%;
+
+  -webkit-animation: gradient-linear-negative 30s ease infinite;
+  -moz-animation: gradient-linear-negative 30s ease infinite;
+  animation: gradient-linear-negative 30s ease infinite;
+}
+
+body {
+  margin: 0;
+  font-size: 1.2rem;
+  height: 100vh;
+  width: 100vw;
+  background: rgb(84, 84, 84);
+  background: linear-gradient(
+    -140deg,
+    rgba(24, 8, 1, 0.87) 5%,
+    rgb(0, 0, 0) 50%,
+    rgba(3, 8, 22, 0.57) 70%
+  );
+   padding: 0;
+   background-size: 100% 100%;
+
+    -webkit-animation: gradient-linear 30s ease infinite;
+    -moz-animation: gradient-linear 30s ease infinite;
+    animation: gradient-linear 30s ease infinite;
+
+}
+
+
+@keyframes gradient-linear  {
+  0%{background-position:54% 0%}
+  50%{background-position:47% 100%}
+  100%{background-position:54% 0%}
+}
+@keyframes gradient-linear-negative  {
+  0%{background-position:-54% 0%}
+  50%{background-position:-47% -100%}
+  100%{background-position:-54% 0%}
+}
