@@ -136,14 +136,27 @@ body {
   flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: center;
-  height: 5rem;
+
   flex-direction: column;
 
   --var-width-max: 1.6rem;
   --var-width-min: 1.16rem;
   z-index: 1;
 }
-.profile-burger > span {
+
+.btn-hb{
+  background: transparent;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border: 0;
+  padding: 1rem;
+
+}
+
+.profile-burger .btn-hb > span {
   height: 0.04rem;
   width: var(--var-width-max);
   background-color: white;
@@ -151,15 +164,15 @@ body {
   margin-block: 0.25rem;
   transition: width 333ms;
 }
-.profile-burger > span:nth-child(1),
-.profile-burger > span:nth-child(3) {
+.btn-hb> span:nth-child(1),
+ .btn-hb> span:nth-child(3) {
   width: var(--var-width-min);
 }
-.profile-burger:hover > span:nth-child(1),
-.profile-burger:hover > span:nth-child(3) {
+ .btn-hb:hover> span:nth-child(1),
+ .btn-hb:hover> span:nth-child(3) {
   width: var(--var-width-max);
 }
-.profile-burger:hover > span:nth-child(2) {
+ .btn-hb:hover> span:nth-child(2) {
   width: var(--var-width-min);
 }
 
