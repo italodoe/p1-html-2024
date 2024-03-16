@@ -1,4 +1,8 @@
 const glow_elem = document.getElementById("glow");
+var offset = { x: 0, y: 0 };
+var isDown = false;
+var interval = null;
+var isIntervalActive = true;
 
 function randomGenerateColor() {
   return [...Array(3).keys()].map(() => Math.floor(Math.random() * 256));
@@ -25,7 +29,6 @@ window.addEventListener(
       offset.y - 300
     }px)`;
     glow_elem.style.opacity = `0.28`;
-
   },
   true
 );
@@ -57,7 +60,6 @@ window.addEventListener(
         offset.y - 300
       }px)`;
       glow_elem.style.opacity = `0.28`;
-      
     }
     //inside cards
     const target = e.target;
@@ -66,9 +68,17 @@ window.addEventListener(
     const x = offset.x - rect.left;
     const y = offset.y - rect.top;
     target.style.cssText += `---mouse-x: ${x}px; ---mouse-y: ${y}px;`;
+
+    if (target.classList.contains("nav-top") && isIntervalActive) {
+      stopRandomisation();
+      setOriginalPhrase();
+    } 
+
   },
   true
 );
+
+// Randomize String
 
 function randomString(length, Uppercase = true) {
   let str = "";
@@ -85,15 +95,43 @@ function randomString(length, Uppercase = true) {
 }
 
 const phrase_one = document.getElementById("profile_name");
-const original_phrase = phrase_one.textContent;
+const original_phrase = phrase_one.innerText;
 let text = "";
 
-setInterval(() => {
-  text = "";
-  for (const letter of phrase_one.textContent) {
-    if (letter !== " ") text += randomString(1, false);
-    else text += " ";
+const runRandomisation = () => {
+  interval = setInterval(() => {
+    isIntervalActive = true;
+    text = "";
+    for (const letter of phrase_one.innerText) {
+      if (letter !== " ") text += randomString(1, false);
+      else text += " ";
+    }
+    phrase_one.textContent = "";
+    phrase_one.textContent = text;
+  }, 63);
+};
+
+const stopRandomisation = () => {
+  isIntervalActive = false;
+  clearInterval(interval);
+};
+
+function setOriginalPhrase() {
+  let index = 0;
+
+  function runchange(index_inside) {
+    let text = phrase_one.innerText;
+    str = text.split("");
+    str[index_inside] = original_phrase[index_inside];
+    text = str.join("");
+    phrase_one.innerText = text;
   }
-  phrase_one.textContent = "";
-  phrase_one.textContent = text;
-}, 63);
+
+  const timer = setInterval(() => {
+    runchange(index++);
+    if (index === original_phrase.length) 
+      clearInterval(timer);
+  }, 31);
+}
+
+runRandomisation();
