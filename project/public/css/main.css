@@ -531,6 +531,7 @@ body {
   height: 100%;
   position: relative;
   z-index: 1;
+  min-height: 900px;
 }
 
 #body #wrapper-2 .box {
@@ -577,7 +578,7 @@ body {
   font-size: clamp(2.58rem, 4vw, 2.45rem);
   margin-block-end: 3vmin;
   font-weight: 800;
-  position: relative;
+  position: fixed;
   z-index: 10;
 }
 
@@ -636,6 +637,7 @@ body {
   opacity: 1;
   min-height: 160%;
   transition: transform 400ms;
+
 }
 
 #body #wrapper-2 .box:after {
@@ -654,11 +656,15 @@ body {
   opacity: 0.18;
 }
 
-/* #wrapper-2 .box:hover #video_bg + .content, */
 #body #wrapper-2 .box.playing #video_bg + .content {
   background-position: 30% 30%;
   background-size: 1.5vmin 1.5vmin;
-  /* transform: translateZ(30%); */
+  overflow-y: scroll;
+}
+
+/* hidden scroll */
+#body #wrapper-2 .box.playing #video_bg + .content::-webkit-scrollbar{
+  width: 0;
 }
 
 .sub-title > span {
