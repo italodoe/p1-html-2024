@@ -212,13 +212,13 @@ body {
 .wrapper {
   /* display: grid; */
   grid-template-columns: repeat(3, minmax(10rem, 23rem));
-  grid-template-rows: repeat(3, 18rem);
+  grid-template-rows: repeat(2, 18rem);
   column-gap: 1rem;
   row-gap: 1rem;
   justify-content: center;
   position: relative;
   top: 50%;
-  transform: translate(0%, -50%);
+  transform: translate(0%, -75%);
   z-index: 2;
   display: none;
 }
@@ -510,6 +510,7 @@ body {
   height: 100%;
   position: relative;
   z-index: 1;
+  transform: translate(0%, -50%);
 }
 
 #wrapper-2 .box {
@@ -526,8 +527,8 @@ body {
 #wrapper-2 .box:before {
   content: "";
   position: absolute;
-  width: 64vmin;
-  height: 95vmin;
+  width: 100vmax;
+  height:  100vmax;
   background: #155196;
   background: linear-gradient(135deg, #155196, #05183b, #1d0075, #3c1d2b);
   background-size: 300% 100%;
@@ -628,4 +629,22 @@ body {
 
 .sub-title > span {
   display: flex;
+}
+
+.text-bg{
+  font-size: 1vmin;
+  display: flex;
+  position: absolute;
+  top: 51%;
+  left: 53%;
+  transform: translate(-100%, -75%);
+  z-index: -1;
+  font-weight: 700;
+  color: rgba(8, 8, 8, 0.637);
+  user-select: none;
+  transition-duration: 200ms;
+}
+.text-bg:hover{
+  color: rgba(34, 34, 34, 0.788);
+
 }
