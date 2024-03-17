@@ -25,8 +25,7 @@ const HelperClass = {
 
 //helpers
 
-
-function runGenerateRandomCardColor(){
+function runGenerateRandomCardColor() {
   // random card inside glow
   function randomGenerateColor() {
     return [...Array(3).keys()].map(() => Math.floor(Math.random() * 256));
@@ -42,7 +41,6 @@ function runGenerateRandomCardColor(){
   }
 }
 
-
 window.addEventListener(
   "mousedown",
   function (e) {
@@ -55,6 +53,19 @@ window.addEventListener(
       offset.y - 300
     }px)`;
     glow_elem.style.opacity = `0.28`;
+    console.log(e);
+
+    let target = e.target;
+    console.log("onClickCard", target);
+
+    //show content of card
+    if (HelperClass.hasClass(target, "card-m")) {
+      let card_inside = target.querySelector(".card-inside");
+      if (card_inside) {
+        HelperClass.addClass(card_inside, "card-active");
+        playMusic(card_inside.dataset.audiosrc);
+      }
+    }
   },
   true
 );
@@ -68,6 +79,9 @@ window.addEventListener(
       y: e.clientY,
     };
     glow_elem.style.opacity = `0`;
+
+    stopCardVision();
+    pauseMusic();
   },
   true
 );
@@ -95,6 +109,7 @@ window.addEventListener(
     const y = offset.y - rect.top;
     target.style.cssText += `---mouse-x: ${x}px; ---mouse-y: ${y}px;`;
 
+    //show original text
     if (target.classList.contains("nav-top") && isIntervalActive) {
       stopRandomisation();
       setOriginalPhrase();
@@ -167,8 +182,6 @@ function setOriginalPhrase() {
   }, 21);
 }
 
-
-
 // menu background
 for (const [index, item] of document.querySelectorAll(".menu-item").entries()) {
   item.dataset.index = index;
@@ -198,6 +211,39 @@ function onClickMenu(e) {
   HelperClass.toggleClass(sidebar, "active-bg");
 }
 
+//click card
+const stopCardVision = () => {
+  for (const card of document.querySelectorAll(".card-inside")) {
+    HelperClass.removeClass(card, "card-active");
+  }
+};
+
+const playMusic = (src) => {
+  const audio = document.getElementById("music_player");
+  if ( typeof src === "string" && !isPlaying(audio)) {
+    audio.src = src;
+    audio.volume = 0.2;
+    audio.play();
+  }
+};
+
+const pauseMusic = (src) => {
+  const audio = document.getElementById("music_player");
+  if (isPlaying(audio)) {
+    audio.volume = 0.2;
+    audio.pause();
+  }
+};
+
+const isPlaying = (media) => {
+  return (
+    media &&
+    media.currentTime > 0 &&
+    !media.paused &&
+    !media.ended &&
+    media.readyState > media.HAVE_CURRENT_DATA
+  );
+};
 
 //Run
 runRandomisation();
