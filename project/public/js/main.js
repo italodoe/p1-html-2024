@@ -3,6 +3,9 @@ var offset = { x: 0, y: 0 };
 var isDown = false;
 var interval = null;
 var isIntervalActive = true;
+const article = document.getElementById("wrapper-3");
+article.dataset.lastX = 0;
+article.dataset.lastPercentage = 0;
 
 const HelperClass = {
   addClass: (elem, className) => {
@@ -67,8 +70,9 @@ window.addEventListener(
     }px)`;
     glow_elem.style.opacity = `0.28`;
 
+    article.dataset.lastY = e.clientY;
+
     let target = e.target;
-    console.log(target);
     //show content of card
     if (HelperClass.hasClass(target, "card-m")) {
       let card_inside = target.querySelector(".card-inside");
@@ -93,8 +97,12 @@ window.addEventListener(
       x: e.clientX,
       y: e.clientY,
     };
+    //for glow element
     glow_elem.style.opacity = `0`;
-
+    //for article > img
+    article.dataset.lastY = e.clientY;
+    article.dataset.lastPercentage = article.dataset.percentage;
+    // for card video Sound
     stopCardVision();
     stopMusic("page1");
   },
@@ -127,6 +135,18 @@ window.addEventListener(
     if (target.classList.contains("nav-top") && isIntervalActive) {
       stopRandomisation();
       setOriginalPhrase();
+    }
+
+    let maxPositionY = parseFloat(article.dataset.lastY) - offset.y;
+    let maxHeight = window.innerHeight / 2;
+    let percentage = (maxPositionY / maxHeight) * 100;
+    let nextPercentage =
+      parseFloat(article.dataset.lastPercentage) + percentage;
+    nextPercentage = Math.max(Math.min(nextPercentage, 0), -100);
+    article.dataset.percentage = nextPercentage;
+
+    for (const img of target.parentNode.querySelectorAll(".article-img")) {
+      img.style.objectPosition = `100% ${nextPercentage + 100}%`;
     }
   },
   true
@@ -326,7 +346,7 @@ if (box) {
         parseFloat(lyric.dataset.lastPercentage) + percentage;
       nextPercentage = Math.max(Math.min(nextPercentage, 0), -100);
       lyric.dataset.percentage = nextPercentage;
-      lyric.style.transform = `translateY(${nextPercentage*1.355}%)`;
+      lyric.style.transform = `translateY(${nextPercentage * 1.355}%)`;
     },
     true
   );
