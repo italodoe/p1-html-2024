@@ -26,6 +26,11 @@ const HelperClass = {
 //helpers
 
 function runGenerateRandomCardColor() {
+  var totalAudios = 28;
+  var audioKeys = [...Array(totalAudios).keys()].sort(
+    () => 0.5 - Math.random()
+  );
+
   // random card inside glow
   function randomGenerateColor() {
     return [...Array(3).keys()].map(() => Math.floor(Math.random() * 256));
@@ -36,8 +41,16 @@ function runGenerateRandomCardColor() {
     return (card.style = `---bg-r: ${randColor[0]};---bg-g: ${randColor[1]};---bg-b: ${randColor[2]}`);
   }
 
+  function setRandomAudio(card) {
+    let card_inside = card.querySelector(".card-inside");
+    if (card_inside) {
+      card_inside.dataset.audiosrc = `../public/audio/audio-${audioKeys.pop()}.wav`;
+    }
+  }
+
   for (const card of document.querySelectorAll(".card-h, .card-m")) {
     setRandomColorStyle(card);
+    setRandomAudio(card);
   }
 }
 
@@ -53,10 +66,8 @@ window.addEventListener(
       offset.y - 300
     }px)`;
     glow_elem.style.opacity = `0.28`;
-    console.log(e);
 
     let target = e.target;
-    console.log("onClickCard", target);
 
     //show content of card
     if (HelperClass.hasClass(target, "card-m")) {
@@ -81,7 +92,7 @@ window.addEventListener(
     glow_elem.style.opacity = `0`;
 
     stopCardVision();
-    pauseMusic();
+    stopMusic();
   },
   true
 );
@@ -103,7 +114,6 @@ window.addEventListener(
     }
     //inside cards
     const target = e.target;
-    // console.log(target);
     const rect = target.getBoundingClientRect();
     const x = offset.x - rect.left;
     const y = offset.y - rect.top;
@@ -200,6 +210,7 @@ function onMouseOverHandser(e) {
 const sidebar = document.getElementById("sidebar");
 const menu_btn = document.getElementById("menu_btn");
 const menu_close_btn = document.getElementById("menu_close_btn");
+const audio = document.getElementById("music_player");
 
 if (menu_btn) menu_btn.addEventListener("click", onClickMenu);
 
@@ -219,20 +230,26 @@ const stopCardVision = () => {
 };
 
 const playMusic = (src) => {
-  const audio = document.getElementById("music_player");
-  if ( typeof src === "string" && !isPlaying(audio)) {
+  if (typeof src === "string" && !isPlaying(audio)) {
     audio.src = src;
     audio.volume = 0.2;
     audio.play();
   }
 };
 
-const pauseMusic = (src) => {
-  const audio = document.getElementById("music_player");
+const pauseMusic = () => {
   if (isPlaying(audio)) {
     audio.volume = 0.2;
     audio.pause();
   }
+};
+
+const stopMusic = () => {
+  if (isPlaying(audio)) {
+    audio.pause();
+  }
+  audio.currentTime = 0;
+  audio.src = audio.src;9999
 };
 
 const isPlaying = (media) => {
@@ -244,6 +261,11 @@ const isPlaying = (media) => {
     media.readyState > media.HAVE_CURRENT_DATA
   );
 };
+
+
+
+//Box
+
 
 //Run
 runRandomisation();
