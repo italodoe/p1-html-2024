@@ -679,10 +679,24 @@ body {
   flex-wrap: nowrap;
   transform: none;
   top: 0;
+  user-select: none;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  overflow: auto;
+  justify-content: flex-start;
+  margin-block: 0 5rem;
 }
-#wrapper-3 > section{
+#wrapper-3 > * {
+
   position: relative;
+  width: 100%;
 }
+#wrapper-3 > section > img {
+  width: inherit;
+
+}
+
 #wrapper-3 > section[data-credits]:before{
   content: attr(data-credits);
   width: 100%;
