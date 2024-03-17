@@ -474,7 +474,7 @@ body {
   background: radial-gradient(
     circle,
     rgb(0 0 0) 0%,
-    rgba(126, 5, 5, 0.363) 88%
+    rgba(var(---bg-r), var(---bg-g), var(---bg-b), 0.363) 88%
   );
   animation: gradient 5s ease infinite;
   background-size: 185%;
