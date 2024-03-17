@@ -73,6 +73,7 @@ window.addEventListener(
     article.dataset.lastY = e.clientY;
 
     let target = e.target;
+    console.log(target);
     //show content of card
     if (HelperClass.hasClass(target, "card-m")) {
       let card_inside = target.querySelector(".card-inside");
@@ -139,11 +140,12 @@ window.addEventListener(
 
     let maxPositionY = parseFloat(article.dataset.lastY) - offset.y;
     let maxHeight = window.innerHeight / 2;
-    let percentage = (maxPositionY / maxHeight) * 100;
+    let percentage = (maxPositionY / maxHeight) * -100;
     let nextPercentage =
       parseFloat(article.dataset.lastPercentage) + percentage;
     nextPercentage = Math.max(Math.min(nextPercentage, 0), -100);
     article.dataset.percentage = nextPercentage;
+   
 
     for (const img of target.parentNode.querySelectorAll(".article-img")) {
       img.style.objectPosition = `100% ${nextPercentage + 100}%`;
