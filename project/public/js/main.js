@@ -73,7 +73,6 @@ window.addEventListener(
     article.dataset.lastY = e.clientY;
 
     let target = e.target;
-    console.log(target);
     //show content of card
     if (HelperClass.hasClass(target, "card-m")) {
       let card_inside = target.querySelector(".card-inside");
