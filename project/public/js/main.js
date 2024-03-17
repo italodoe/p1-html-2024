@@ -221,9 +221,7 @@ if (menu_btn) menu_btn.addEventListener("click", onClickMenu);
 if (menu_close_btn) menu_close_btn.addEventListener("click", onClickMenu);
 
 function onClickMenu(e) {
-
   toggleSidebar();
-
 }
 
 //click card
@@ -284,7 +282,7 @@ const getAudioPageLabel = () => {
 const box = document.getElementById("the_box");
 const lyric = document.getElementById("lyric");
 var box_isDown = false;
-var box_offset = { x: 0, y: 0 };
+var boxOffset = { x: 0, y: 0 };
 
 if (box) {
   box_isDown = false;
@@ -292,7 +290,7 @@ if (box) {
     "mouseup",
     function (e) {
       box_isDown = false;
-      box_offset = {
+      boxOffset = {
         x: e.clientX,
         y: e.clientY,
       };
@@ -305,11 +303,12 @@ if (box) {
     "mousedown",
     function (e) {
       box_isDown = true;
-      box_offset = {
+      boxOffset = {
         x: e.clientX,
         y: e.clientY,
       };
       console.log("mousedown");
+      console.log(boxOffset.x, boxOffset.y);
     },
     true
   );
@@ -317,12 +316,13 @@ if (box) {
   box.addEventListener(
     "mousemove",
     function (e) {
-      box_offset = {
+      boxOffset = {
         x: e.clientX,
         y: e.clientY,
       };
 
       console.log("mousemove");
+      console.log(boxOffset.x, boxOffset.y);
 
       if (isDown) {
       }
@@ -335,8 +335,7 @@ if (box) {
     function (e) {
       if (HelperClass.hasClass(box, "playing")) {
         stopMusic("page2");
-      } 
-      else {
+      } else {
         let src = box.dataset.audiosrc;
         playMusic(src, "page2");
       }
@@ -347,25 +346,21 @@ if (box) {
   );
 }
 
-
 //sidebar
 function menuItemClickHandler(target) {
   document.getElementById("body").dataset.index = target.dataset.index;
   toggleSidebar();
   //stop all music
-  stopMusic('page1');
-  stopMusic('page2');
+  stopMusic("page1");
+  stopMusic("page2");
   //reset box
   HelperClass.removeClass(box, "playing");
-
 }
-
 
 const toggleSidebar = () => {
   HelperClass.toggleClass(sidebar, "active-bg");
   HelperClass.toggleClass(menu_btn, "active-bg");
   HelperClass.toggleClass(menu_close_btn, "active-bg");
-
 };
 
 //Run
