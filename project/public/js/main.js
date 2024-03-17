@@ -26,7 +26,7 @@ const HelperClass = {
 //helpers
 
 function runGenerateRandomCardColor() {
-  var totalAudios = 28;
+  var totalAudios = 27;
   var audioKeys = [...Array(totalAudios).keys()].sort(
     () => 0.5 - Math.random()
   );
@@ -231,10 +231,11 @@ const stopCardVision = () => {
   }
 };
 
-const playMusic = (src, code) => {
+const playMusic = (src, code, loop = true) => {
   if (typeof src === "string" && !isPlaying(audio)) {
     audio.src = src;
     audio.volume = 0.2;
+    audio.loop = true;
     audio.play();
     setAudioPageLabel(code);
   }
@@ -281,20 +282,20 @@ const getAudioPageLabel = () => {
 //Box
 const box = document.getElementById("the_box");
 const lyric = document.getElementById("lyric");
-var box_isDown = false;
 var boxOffset = { x: 0, y: 0 };
+lyric.dataset.lastY = 0;
+lyric.dataset.lastPercentage = 0;
 
 if (box) {
-  box_isDown = false;
   box.addEventListener(
     "mouseup",
     function (e) {
-      box_isDown = false;
       boxOffset = {
         x: e.clientX,
         y: e.clientY,
       };
-      console.log("mouseup");
+      lyric.dataset.lastY = e.clientY;
+      lyric.dataset.lastPercentage = lyric.dataset.percentage;
     },
     true
   );
@@ -302,13 +303,11 @@ if (box) {
   box.addEventListener(
     "mousedown",
     function (e) {
-      box_isDown = true;
       boxOffset = {
-        x: e.clientX,
-        y: e.clientY,
+        x: lyric.offsetLeft - e.clientX,
+        y: lyric.offsetTop - e.clientY,
       };
-      console.log("mousedown");
-      console.log(boxOffset.x, boxOffset.y);
+      lyric.dataset.lastY = e.clientY;
     },
     true
   );
@@ -320,12 +319,15 @@ if (box) {
         x: e.clientX,
         y: e.clientY,
       };
+      let maxPositionY = parseFloat(lyric.dataset.lastY) - boxOffset.y;
+      let maxHeight = e.target.getBoundingClientRect().bottom / 2;
+      let percentage = (maxPositionY / maxHeight) * -100;
+      let nextPercentage =
+        parseFloat(lyric.dataset.lastPercentage) + percentage;
+      nextPercentage = Math.max(Math.min(nextPercentage, 0), -100);
+      lyric.dataset.percentage = nextPercentage;
+      lyric.style.transform = `translateY(${nextPercentage}%)`;
 
-      console.log("mousemove");
-      console.log(boxOffset.x, boxOffset.y);
-
-      if (isDown) {
-      }
     },
     true
   );
