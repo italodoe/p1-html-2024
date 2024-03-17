@@ -77,6 +77,10 @@ window.addEventListener(
         playMusic(card_inside.dataset.audiosrc, "page1");
       }
     }
+    //sidebar clicks
+    else if (HelperClass.hasClass(target, "menu-item")) {
+      menuItemClickHandler(target);
+    }
   },
   true
 );
@@ -217,9 +221,9 @@ if (menu_btn) menu_btn.addEventListener("click", onClickMenu);
 if (menu_close_btn) menu_close_btn.addEventListener("click", onClickMenu);
 
 function onClickMenu(e) {
-  HelperClass.toggleClass(menu_btn, "active-bg");
-  HelperClass.toggleClass(menu_close_btn, "active-bg");
-  HelperClass.toggleClass(sidebar, "active-bg");
+
+  toggleSidebar();
+
 }
 
 //click card
@@ -329,10 +333,10 @@ if (box) {
   box.addEventListener(
     "click",
     function (e) {
-      console.log("blox click");
       if (HelperClass.hasClass(box, "playing")) {
         stopMusic("page2");
-      } else {
+      } 
+      else {
         let src = box.dataset.audiosrc;
         playMusic(src, "page2");
       }
@@ -342,6 +346,27 @@ if (box) {
     true
   );
 }
+
+
+//sidebar
+function menuItemClickHandler(target) {
+  document.getElementById("body").dataset.index = target.dataset.index;
+  toggleSidebar();
+  //stop all music
+  stopMusic('page1');
+  stopMusic('page2');
+  //reset box
+  HelperClass.removeClass(box, "playing");
+
+}
+
+
+const toggleSidebar = () => {
+  HelperClass.toggleClass(sidebar, "active-bg");
+  HelperClass.toggleClass(menu_btn, "active-bg");
+  HelperClass.toggleClass(menu_close_btn, "active-bg");
+
+};
 
 //Run
 runRandomisation();
