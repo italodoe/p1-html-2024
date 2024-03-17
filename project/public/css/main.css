@@ -669,3 +669,27 @@ body {
   padding-inline: 2rem;
   border-radius: var(--var-border-radius);
 }
+
+
+/* Third page */
+
+#wrapper-3{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  transform: none;
+  top: 0;
+}
+#wrapper-3 > section{
+  position: relative;
+}
+#wrapper-3 > section[data-credits]:before{
+  content: attr(data-credits);
+  width: 100%;
+  height: 2rem;
+  display: block;
+  bottom: -1.25rem;
+  position: absolute;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.836);
+}
