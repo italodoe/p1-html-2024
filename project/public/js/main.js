@@ -73,6 +73,7 @@ window.addEventListener(
     article.dataset.lastY = e.clientY;
 
     let target = e.target;
+     
     //show content of card
     if (HelperClass.hasClass(target, "card-m")) {
       let card_inside = target.querySelector(".card-inside");
@@ -138,7 +139,7 @@ window.addEventListener(
     }
 
     let maxPositionY = parseFloat(article.dataset.lastY) - offset.y;
-    let maxHeight = window.innerHeight / 2;
+    let maxHeight = rect.top/3;
     let percentage = (maxPositionY / maxHeight) * -100;
     let nextPercentage =
       parseFloat(article.dataset.lastPercentage) + percentage;
