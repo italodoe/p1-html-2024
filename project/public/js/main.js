@@ -326,8 +326,7 @@ if (box) {
         parseFloat(lyric.dataset.lastPercentage) + percentage;
       nextPercentage = Math.max(Math.min(nextPercentage, 0), -100);
       lyric.dataset.percentage = nextPercentage;
-      lyric.style.transform = `translateY(${nextPercentage}%)`;
-
+      lyric.style.transform = `translateY(${nextPercentage*1.355}%)`;
     },
     true
   );

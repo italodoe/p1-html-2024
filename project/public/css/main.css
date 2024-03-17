@@ -606,7 +606,6 @@ body {
 #wrapper-2 .box .sub-title > span:hover{
   transform: scale(1rem);
   background-color: red;
-  border-radius: 5%;
 } 
 
 #wrapper-2 .box:hover .caption {
@@ -667,4 +666,6 @@ body {
 
 .sub-title > span {
   display: flex;
+  padding-inline: 2rem;
+  border-radius: var(--var-border-radius);
 }
