@@ -579,7 +579,7 @@ body {
   position: relative;
   z-index: 10;
 }
-#wrapper-2 .box .title .title-bg  {
+#wrapper-2 .box .title .title-bg {
   background-color: rgba(245, 245, 245, 0.568);
   filter: blur(35px);
   width: 100%;
@@ -587,7 +587,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-
 }
 #wrapper-2 .box .sub-title {
   font-size: 2vmin;
@@ -603,14 +602,14 @@ body {
   transition: transform 400ms;
 }
 
-#wrapper-2 .box .sub-title > span:hover{
+#wrapper-2 .box .sub-title > span:hover {
   transform: scale(1rem);
   background-color: red;
-} 
+}
 
 #wrapper-2 .box:hover .caption {
   opacity: 1;
-  transform: translateY(-30%) ;
+  transform: translateY(-30%);
   transition: transform 300ms;
   transform-origin: left;
 }
@@ -670,10 +669,9 @@ body {
   border-radius: var(--var-border-radius);
 }
 
-
 /* Third page */
 
-#wrapper-3{
+#wrapper-3 {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -688,16 +686,14 @@ body {
   margin-left: 1rem;
 }
 #wrapper-3 > * {
-
   position: relative;
   width: 100%;
 }
 #wrapper-3 > section > img {
   width: inherit;
-
 }
 
-#wrapper-3 > section[data-credits]:before{
+#wrapper-3 > section[data-credits]:before {
   content: attr(data-credits);
   width: 100%;
   height: 2rem;
@@ -708,7 +704,7 @@ body {
   color: rgba(0, 0, 0, 0.836);
 }
 
-.content-text{
+.content-text {
   position: absolute;
   top: 0px;
   width: 100%;
@@ -721,52 +717,51 @@ body {
   transition: 400ms;
   max-width: 80%;
 }
-.content-text .ct-header{
+.content-text .ct-header {
   font-size: clamp(1.6025rem, 3vw, 1.8645rem);
-  line-height: clamp(1.5025rem, 3vw, .88645rem);
+  line-height: clamp(1.5025rem, 3vw, 0.88645rem);
   padding: 0;
   margin: 0;
   margin-left: 3.8vmin;
   /* color: #a7a7a7;
   text-shadow: -1px 0px 1px #7affed; */
   color: #7affed;
-  text-shadow: -1px 0px 1px #a7a7a7 ;
+  text-shadow: -1px 0px 1px #a7a7a7;
   transition: 400ms;
 }
-.content-text .ct-body{
-  font-size: clamp(1.025rem, 3vw, .8645rem);
+.content-text .ct-body {
+  font-size: clamp(1.025rem, 3vw, 0.8645rem);
   background: rgba(43, 43, 43, 0.664);
   margin-left: 4vmin;
   margin-bottom: 15.5vmin;
-  line-height: clamp(1.025rem, 3vw, .8645rem);
-  width: clamp(25.025rem, 16vw, .1355rem);
-   color: #c2c2c2;
+  line-height: clamp(1.025rem, 3vw, 0.8645rem);
+  width: clamp(25.025rem, 16vw, 0.1355rem);
+  color: #c2c2c2;
   text-shadow: -1px 0px 1px #93f8eb;
   font-family: "DM Sans";
   padding: 0.8rem;
   transition: 400ms;
 }
 
-section.header .content-text  .content-wrapper {
-padding: 0.525rem;
-transition: 400ms;
-border: 4px solid rgb(90, 240, 222);
-background-color: rgba(61, 61, 61, 0.596);
-padding: 4vmin;
+section.header .content-text .content-wrapper {
+  padding: 0.525rem;
+  transition: 400ms;
+  border: 4px solid rgb(90, 240, 222);
+  background-color: rgba(61, 61, 61, 0.596);
+  padding: 4vmin;
 }
 
-section.header .content-text  .content-wrapper:hover,
+section.header .content-text .content-wrapper:hover,
 section:not(.header) .content-text .ct-header:hover,
 section:not(.header) .content-text .ct-header:hover + .ct-body,
-section:not(.header) .content-text .ct-body:hover{
+section:not(.header) .content-text .ct-body:hover {
   opacity: 0.2;
-} 
-
-section .content-text:hover{
 }
 
-section.header  .content-text{
+section .content-text:hover {
+}
 
+section.header .content-text {
   width: 100%;
   max-width: 100%;
   flex-flow: column;
@@ -776,17 +771,16 @@ section.header  .content-text{
 }
 
 section.header > .content-text .ct-header,
-section.header > .content-text .ct-body{
+section.header > .content-text .ct-body {
   margin: auto;
   background: transparent;
   text-align: center;
   font-size: 2vmin;
   line-height: 2vmin;
 }
-section.header > .content-text .ct-header{
+section.header > .content-text .ct-header {
   font-size: 3.5vmin;
 }
-
 
 #wrapper-3::-webkit-scrollbar {
   width: 1em;
@@ -797,6 +791,6 @@ section.header > .content-text .ct-header{
 }
 
 #wrapper-3::-webkit-scrollbar-thumb {
-background-color: darkgrey;
-outline: 1px solid slategrey;
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }
