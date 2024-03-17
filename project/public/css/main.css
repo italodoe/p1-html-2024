@@ -636,15 +636,16 @@ body {
   display: flex;
   position: absolute;
   top: 51%;
-  left: 53%;
-  transform: translate(-100%, -75%);
+  transform: translate(0, -75%);
   z-index: -1;
   font-weight: 700;
   color: rgba(8, 8, 8, 0.637);
   user-select: none;
   transition-duration: 200ms;
+  display: flex;
+  justify-content: center;
+  width:100%;
 }
 .text-bg:hover{
   color: rgba(34, 34, 34, 0.788);
-
 }
