@@ -68,13 +68,13 @@ window.addEventListener(
     glow_elem.style.opacity = `0.28`;
 
     let target = e.target;
-
+    console.log(target);
     //show content of card
     if (HelperClass.hasClass(target, "card-m")) {
       let card_inside = target.querySelector(".card-inside");
       if (card_inside) {
         HelperClass.addClass(card_inside, "card-active");
-        playMusic(card_inside.dataset.audiosrc);
+        playMusic(card_inside.dataset.audiosrc, "page1");
       }
     }
   },
@@ -92,7 +92,7 @@ window.addEventListener(
     glow_elem.style.opacity = `0`;
 
     stopCardVision();
-    stopMusic();
+    stopMusic("page1");
   },
   true
 );
@@ -229,27 +229,29 @@ const stopCardVision = () => {
   }
 };
 
-const playMusic = (src) => {
+const playMusic = (src, code) => {
   if (typeof src === "string" && !isPlaying(audio)) {
     audio.src = src;
     audio.volume = 0.2;
     audio.play();
+    setAudioPageLabel(code);
   }
 };
 
-const pauseMusic = () => {
-  if (isPlaying(audio)) {
+const pauseMusic = (code) => {
+  if (getAudioPageLabel() === code && isPlaying(audio)) {
     audio.volume = 0.2;
     audio.pause();
   }
 };
 
-const stopMusic = () => {
-  if (isPlaying(audio)) {
-    audio.pause();
+const stopMusic = (code) => {
+  if (getAudioPageLabel() === code) {
+    if (code && isPlaying(audio)) audio.pause();
+
+    audio.currentTime = 0;
+    audio.src = audio.src;
   }
-  audio.currentTime = 0;
-  audio.src = audio.src;9999
 };
 
 const isPlaying = (media) => {
@@ -262,10 +264,84 @@ const isPlaying = (media) => {
   );
 };
 
+const setAudioPageLabel = (code) => {
+  if (audio) {
+    audio.dataset.pagecode = code;
+  }
+};
 
+const getAudioPageLabel = () => {
+  if (audio) {
+    return audio.dataset.pagecode;
+  }
+};
 
 //Box
+const box = document.getElementById("the_box");
+const lyric = document.getElementById("lyric");
+var box_isDown = false;
+var box_offset = { x: 0, y: 0 };
 
+if (box) {
+  box_isDown = false;
+  box.addEventListener(
+    "mouseup",
+    function (e) {
+      box_isDown = false;
+      box_offset = {
+        x: e.clientX,
+        y: e.clientY,
+      };
+      console.log("mouseup");
+    },
+    true
+  );
+
+  box.addEventListener(
+    "mousedown",
+    function (e) {
+      box_isDown = true;
+      box_offset = {
+        x: e.clientX,
+        y: e.clientY,
+      };
+      console.log("mousedown");
+    },
+    true
+  );
+
+  box.addEventListener(
+    "mousemove",
+    function (e) {
+      box_offset = {
+        x: e.clientX,
+        y: e.clientY,
+      };
+
+      console.log("mousemove");
+
+      if (isDown) {
+      }
+    },
+    true
+  );
+
+  box.addEventListener(
+    "click",
+    function (e) {
+      console.log("blox click");
+      if (HelperClass.hasClass(box, "playing")) {
+        stopMusic("page2");
+      } else {
+        let src = box.dataset.audiosrc;
+        playMusic(src, "page2");
+      }
+
+      HelperClass.toggleClass(box, "playing");
+    },
+    true
+  );
+}
 
 //Run
 runRandomisation();
