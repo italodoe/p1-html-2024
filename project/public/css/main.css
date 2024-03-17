@@ -699,6 +699,7 @@ body {
   object-position: 100% center;
   position: relative;
   user-select: none;
+  transition-duration: 322ms;
 }
 
 #wrapper-3 > section[data-credits]:before {
